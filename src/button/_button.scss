@@ -1,49 +1,50 @@
 @import "button-variables";
+@import "button-functions";
 
 /// Make the actual button by throwing in a variable argument
 /// Like so: make-button($parameters...);
 @mixin make-button(
   $background-color: $button-background-color,
-  $background-color--hover: $button-background-hover-color,
+  $background-color--hover: $button-background-color--hover,
+  $border: $button-border-width $button-border-style $button-border-color,
   $border-radius: $button-border-radius,
   $box-shadow: $button-box-shadow,
+  $color: $button-text-color,
+  $color--hover: $button-text-color,
+  $cursor: $button-cursor,
+  $display: $button-display,
   $font-size: $button-font-size,
-  $color: $button-text-color
+  $line-height: $button-line-height,
+  $margin: $button-margin,
+  $padding: $button-padding,
+  $text-align: $button-text-align,
+  $text-decoration: $button-text-decoration,
+  $vertical-align: $button-vertical-align
 ) {
   -webkit-appearance: none;
   background-color: $background-color;
-  border-top: $button-border-top-width $button-border-top-style $button-border-top-color;
-  border-right: $button-border-right-width $button-border-right-style $button-border-right-color;
-  border-bottom: $button-border-bottom-width $button-border-bottom-style $button-border-bottom-color;
-  border-left: $button-border-left-width $button-border-left-style $button-border-left-color;
+  border: $border;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   color: $color;
-  cursor: $button-cursor;
-  display: inline-block;
+  cursor: $cursor;
+  display: $display;
   font-size: $font-size;
   line-height: $button-line-height;
   margin: $button-margin;
   padding: $button-padding;
-  text-align: center;
+  text-align: $text-align;
   text-decoration: $button-text-decoration;
-  vertical-align: middle;
+  vertical-align: $button-vertical-align;
 }
 
 /// A simple button with defined colors for background, hover and text
 @mixin button(
-  $background-color: $button-background-color,
-  $background-color--hover: $button-background-hover-color,
-  $color: $button-text-color
+  $style: default,
+  $size: base
 ) {
-  // @todo fix the map so it will be a variable argument
-  $style: ($background-color, $background-color--hover, $color);
-  @include make-button($style...);
-}
-
-/// A button that looks like a link
-@mixin button-link(
-  $color: $button-link-color
-) {
-  @include button(transparent, transparent, $color);
+  $style: get-button-style($style);
+  $size: map_get($button-sizes, $size);
+  $parameters: map_merge($style, $size);
+  @include make-button($parameters...);
 }

@@ -1,0 +1,20 @@
+/// Get a button style
+/// @parameter {string} $style - Name of the style
+@function get-button-style($style) {
+  @if map-has_key($button-styles, $style) {
+    @return map-get($button-styles, $style);
+  } @else {
+    $error: log-error('Style `#{$style}` not defined in $button-styles');
+    @return ();
+  }
+}
+
+/// Add a button style
+/// @parameter {string} $name - Name of the style
+/// @parameter {map} $style - Map of style parameters
+@function add-button-style($name, $style) {
+  $new-style: (
+    $name: $style
+  );
+  @return map-merge($button-styles, $new-style);
+}

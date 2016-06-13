@@ -1,0 +1,3 @@
+@function log-error($error) {
+  @error 'Houston, we have a problem... (crackle)... #{$error}';
+}
