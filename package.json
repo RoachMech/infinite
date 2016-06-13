@@ -1,0 +1,21 @@
+{
+  "name": "infinite",
+  "version": "0.0.0",
+  "description": "A nice frontend framework with endless possibilities",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoachMech/infinite.git"
+  },
+  "keywords": [
+    "sass"
+  ],
+  "author": "RoachMech",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RoachMech/infinite/issues"
+  },
+  "homepage": "https://github.com/RoachMech/infinite#readme"
+}
