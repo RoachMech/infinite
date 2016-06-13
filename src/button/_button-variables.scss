@@ -1,6 +1,6 @@
 $button-background-color: $global-color-brand !default;
 $button-background-hover-color: scale_color($button-background-color, $lightness: -10%) !default;
-$button-box-shadow: none;
+$button-box-shadow: none !default;
 $button-text-color: #fff !default;
 $button-link-color: $global-text-link-color !default;
 
