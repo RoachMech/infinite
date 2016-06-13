@@ -1,0 +1,30 @@
+$button-background-color: $global-color-brand !default;
+$button-background-hover-color: scale_color($button-background-color, $lightness: -10%) !default;
+$button-text-color: #fff !default;
+$button-link-color: $global-text-link-color !default;
+
+$button-font-size: 1rem !default;
+$button-line-height: 1 !default;
+$button-text-decoration: none !default;
+$button-margin: 0 0 1em 0 !default;
+$button-padding: 0.75em 1em !default;
+
+$button-border-width: 1px !default;
+$button-border-style: solid !default;
+$button-border-color: transparent !default;
+$button-border-top-width: $button-border-width !default;
+$button-border-top-style: $button-border-style !default;
+$button-border-top-color: $button-border-color !default;
+$button-border-right-width: $button-border-width !default;
+$button-border-right-style: $button-border-style !default;
+$button-border-right-color: $button-border-color !default;
+$button-border-bottom-width: $button-border-width !default;
+$button-border-bottom-style: $button-border-style !default;
+$button-border-bottom-color: $button-border-color !default;
+$button-border-left-width: $button-border-width !default;
+$button-border-left-style: $button-border-style !default;
+$button-border-left-color: $button-border-color !default;
+
+$button-radius: $global-radius !default;
+
+$button-cursor: pointer !default;

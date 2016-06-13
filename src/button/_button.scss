@@ -1,0 +1,35 @@
+@import "button-variables";
+
+@mixin button-reset {
+  -webkit-appearance: none;
+  border-top: $button-border-top-width $button-border-top-style $button-border-top-color;
+  border-right: $button-border-right-width $button-border-right-style $button-border-right-color;
+  border-bottom: $button-border-bottom-width $button-border-bottom-style $button-border-bottom-color;
+  border-left: $button-border-left-width $button-border-left-style $button-border-left-color;
+  border-radius: $button-radius;
+  cursor: $button-cursor;
+  display: inline-block;
+  font-size: $button-font-size;
+  line-height: $button-line-height;
+  margin: $button-margin;
+  padding: $button-padding;
+  text-align: center;
+  text-decoration: $button-text-decoration;
+  vertical-align: middle;
+}
+
+@mixin button(
+  $background: $button-background-color,
+  $background-hover: $button-background-hover-color,
+  $text: $button-text-color
+) {
+  @include button-reset;
+  background-color: $background;
+  color: $text;
+}
+
+@mixin button-link(
+  $color: $button-link-color
+) {
+  @include button(transparent, transparent, $color);
+}
