@@ -19,7 +19,8 @@
   $padding: $button-padding,
   $text-align: $button-text-align,
   $text-decoration: $button-text-decoration,
-  $vertical-align: $button-vertical-align
+  $vertical-align: $button-vertical-align,
+  $hover-animation: false
 ) {
   -webkit-appearance: none;
   background-color: $background-color;
@@ -36,6 +37,16 @@
   text-align: $text-align;
   text-decoration: $button-text-decoration;
   vertical-align: $button-vertical-align;
+
+  @if $hover-animation {
+    @include button-hover-animation($hover-animation);
+  } @else {
+    &:hover {
+      background-color: $background-color--hover;
+      color: $color--hover;
+    }
+  }
+
 }
 
 /// A simple button with defined colors for background, hover and text
@@ -47,4 +58,33 @@
   $size: map_get($button-sizes, $size);
   $parameters: map_merge($style, $size);
   @include make-button($parameters...);
+}
+
+@mixin button-hover-animation($type) {
+
+  @if $type == sweep-to-right {
+
+    backface-visibility: hidden;
+    position: relative;
+    transform: translateZ(0);
+
+    &:hover:before {
+      transform: scaleX(1);
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: red;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      transition: transform .15s ease-out;
+    }
+  }
+
 }

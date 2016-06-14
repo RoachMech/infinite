@@ -1,6 +1,6 @@
 $button-background-color: $global-color-brand !default;
-$button-background-color--hover: scale_color($button-background-color, $lightness: -10%) !default;
-$button-border-width: 1px !default;
+$button-background-color--hover: scale_color($button-background-color, $lightness: 25%) !default;
+$button-border-width: 0 !default;
 $button-border-style: solid !default;
 $button-border-color: transparent !default;
 $button-border-radius: $global-radius !default;
@@ -30,7 +30,7 @@ $button-styles: (
     background-color--hover: transparent,
     color--hover: $global-text-link-color
   )
-);
+) !default;
 
 $button-sizes: (
   x-large: (
@@ -48,4 +48,4 @@ $button-sizes: (
   x-small: (
     font-size: .6rem
   )
-);
+) !default;
