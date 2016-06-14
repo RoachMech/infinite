@@ -1,0 +1,46 @@
+
+/// Gives a button a transition when hovering
+///
+/// @param {String} $type - type of the transition
+@mixin button-hover-transition($type) {
+
+  @if map-has_key($button-sweep-and-bounce-transitions, $type) {
+    backface-visibility: hidden;
+    position: relative;
+    transform: translateZ(0);
+
+    &:hover:before {
+      transform: scaleX(1);
+
+      @if $type == bounce-to-top or $type == bounce-to-right or $type == bounce-to-bottom or $type == bounce-to-left {
+        transition-timing-function: cubic-bezier(.52,1.64,.37,.66);
+      }
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: red;
+      transform: scaleX(0);
+      transition: transform .15s ease-out;
+
+      @if $type == sweep-to-top or $type == bounce-to-top {
+        transform-origin: 50% 100%;
+      }
+      @if $type == sweep-to-right or $type == bounce-to-right {
+        transform-origin: 0 50%;
+      }
+      @if $type == sweep-to-bottom or $type == bounce-to-bottom {
+        transform-origin: 50% 0;
+      }
+      @if $type == sweep-to-left  or $type == bounce-to-left {
+        transform-origin: 100% 50%;
+      }
+    }
+  }
+}

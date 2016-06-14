@@ -17,12 +17,23 @@ $button-text-color: #fff !default;
 $button-text-decoration: none !default;
 $button-vertical-align: middle !default;
 
+$button-default-style: default !default;
+$button-default-size: base  !default;
+
+$button-sweep-and-bounce-transitions: (
+  sweep-to-right: true,
+  sweep-to-left: true,
+  sweep-to-top: true,
+  sweep-to-bottom: true
+) !default;
+
 $button-styles: (
   default: (
     background-color: $button-background-color,
     color: $button-text-color,
     background-color--hover: $button-background-color--hover,
-    color--hover: $button-text-color
+    color--hover: $button-text-color,
+    hover-transition: sweep-to-right
   ),
   link: (
     background-color: transparent,
