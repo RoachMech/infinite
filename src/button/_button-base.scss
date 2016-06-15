@@ -12,13 +12,13 @@
   $cursor: $button-cursor,
   $display: $button-display,
   $font-size: $button-font-size,
+  $hover-transition: false,
   $line-height: $button-line-height,
   $margin: $button-margin,
   $padding: $button-padding,
   $text-align: $button-text-align,
   $text-decoration: $button-text-decoration,
-  $vertical-align: $button-vertical-align,
-  $hover-transition: false
+  $vertical-align: $button-vertical-align
 ) {
   -webkit-appearance: none;
   background-color: $background-color;

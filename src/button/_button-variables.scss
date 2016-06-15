@@ -20,16 +20,28 @@ $button-vertical-align: middle !default;
 $button-default-style: default !default;
 $button-default-size: base  !default;
 
-$button-sweep-and-bounce-transitions: (
-  sweep-to-right: true,
-  sweep-to-left: true,
-  sweep-to-top: true,
-  sweep-to-bottom: true,
-  bounce-to-right: true,
-  bounce-to-left: true,
-  bounce-to-top: true,
-  bounce-to-bottom: true,
-) !default;
+$button-background-transitions: (
+  sweep-to-right: horizontal,
+  sweep-to-left: horizontal,
+  sweep-to-top: vertical,
+  sweep-to-bottom: vertical,
+  bounce-to-right: horizontal,
+  bounce-to-left: horizontal,
+  bounce-to-top: vertical,
+  bounce-to-bottom: vertical
+);
+
+$button-2d-transitions: (
+  grow: true,
+  shrink: true,
+  pulse: true,
+  pulse-grow: true,
+  pulse-shrink: true,
+  push: true,
+  pop: true,
+  bounce-in: true,
+  bounce-out: true
+);
 
 $button-styles: (
   default: (
@@ -37,7 +49,7 @@ $button-styles: (
     color: $button-text-color,
     background-color--hover: $button-background-color--hover,
     color--hover: $button-text-color,
-    hover-transition: bounce-to-right
+    hover-transition: shrink
   ),
   link: (
     background-color: transparent,
