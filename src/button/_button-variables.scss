@@ -24,7 +24,11 @@ $button-sweep-and-bounce-transitions: (
   sweep-to-right: true,
   sweep-to-left: true,
   sweep-to-top: true,
-  sweep-to-bottom: true
+  sweep-to-bottom: true,
+  bounce-to-right: true,
+  bounce-to-left: true,
+  bounce-to-top: true,
+  bounce-to-bottom: true,
 ) !default;
 
 $button-styles: (
@@ -33,7 +37,7 @@ $button-styles: (
     color: $button-text-color,
     background-color--hover: $button-background-color--hover,
     color--hover: $button-text-color,
-    hover-transition: sweep-to-right
+    hover-transition: bounce-to-right
   ),
   link: (
     background-color: transparent,
