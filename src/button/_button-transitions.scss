@@ -1,10 +1,19 @@
-/// Add a background transition to the button
-/// (Big thanks to Ian Lunn's Hover.css)
-@mixin button-background-transition($type) {
-
+/// Add optimization to buttons with transition
+@mixin button-optimize-for-transition() {
+  -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
-  position: relative;
   transform: translateZ(0);
+}
+
+/// Add a background transition to the hover state of the button
+/// (Big thanks to Ian Lunn's Hover.css)
+@mixin button-background-transition($type, $button-style) {
+
+  @include button-optimize-for-transition();
+
+  &:hover {
+    color: map-get($button-style, color--hover);
+  }
 
   &:before {
     content: '';
@@ -14,7 +23,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: red;
+    background-color: map-get($button-style, background-color--hover);
 
     @if button-has-vertical-transition($type) {
       transform: scaleY(0);
@@ -46,38 +55,94 @@
     }
 
     @if $type == bounce-to-top or $type == bounce-to-right or $type == bounce-to-bottom or $type == bounce-to-left {
-      transition-timing-function: cubic-bezier(.52,1.64,.37,.66);
+      transition-timing-function: cubic-bezier(.52, 1.64, .37, .66);
     }
   }
 
 }
 
+/// Add a 2d transition to the hover state of the button
 @mixin button-2d-transition($type) {
 
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  transition: transform .15s;
+  @include button-optimize-for-transition();
+  transition: transform .2s;
 
   &:hover {
     @if $type == grow {
       transform: scale(1.1);
     }
+    @if $type == bounce-in {
+      transform: scale(1.1);
+      transition-timing-function: cubic-bezier(.47, 2.02, .31, -0.36);
+    }
+    @if $type == bounce-out {
+      transform: scale(.9);
+      transition-timing-function: cubic-bezier(.47, 2.02, .31, -0.36);
+    }
     @if $type == shrink {
       transform: scale(.9);
     }
   }
+}
 
+/// Add an animation to the hover state of the button
+@mixin button-animation($animation) {
+
+  @include button-optimize-for-transition();
+
+  &:hover {
+    animation: $animation map-get($button-animations, $animation);
+  }
+}
+
+@keyframes pulse {
+  25% {
+    transform: scale(1.05);
+  }
+  75% {
+    transform: scale(.95);
+  }
+}
+
+@keyframes pulse-grow {
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulse-shrink {
+  to {
+    transform: scale(.95);
+  }
+}
+
+@keyframes push {
+  50% {
+    transform: scale(.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 /// Gives a button a transition when hovering
 ///
 /// @param {String} $type - type of the transition
-@mixin button-hover-transition($type) {
+/// @param {Map} $button-style - map of the button styles
+@mixin button-hover-transition($type, $button-style) {
 
   @if button-has-background-transition($type) {
-    @include button-background-transition($type);
+    @include button-background-transition($type, $button-style);
   } @else if button-has-2d-transition($type) {
     @include button-2d-transition($type);
+  } @else if button-has-animation($type) {
+    @include button-animation($type);
   }
 }
 

@@ -45,3 +45,11 @@
 @function button-has-2d-transition($transition) {
   @return map_has_key($button-2d-transitions, $transition);
 }
+
+/// Check if the given transition is an animation
+///
+/// @parameter {string} $transition - Name of the transition
+/// @return {boolean}
+@function button-has-animation($transition) {
+  @return map_has_key($button-animations, $transition);
+}

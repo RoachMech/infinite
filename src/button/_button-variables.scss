@@ -34,28 +34,44 @@ $button-background-transitions: (
 $button-2d-transitions: (
   grow: true,
   shrink: true,
-  pulse: true,
-  pulse-grow: true,
-  pulse-shrink: true,
-  push: true,
-  pop: true,
   bounce-in: true,
   bounce-out: true
 );
 
+$button-animations: (
+  pulse: 1s linear infinite,
+  pulse-grow: .5s linear infinite alternate,
+  pulse-shrink: .5s linear infinite alternate,
+  push: .3s linear 1,
+  pop: .3s linear 1
+);
+
 $button-styles: (
   default: (
+    button-style-name: default,
     background-color: $button-background-color,
-    color: $button-text-color,
+    border-radius: $button-border-radius,
     background-color--hover: $button-background-color--hover,
+    color: $button-text-color,
     color--hover: $button-text-color,
-    hover-transition: shrink
+    hover-transition: sweep-to-bottom
+  ),
+  ghost: (
+    button-style-name: ghost,
+    background-color: transparent,
+    background-color--hover: black,
+    border: 2px solid black,
+    color: black,
+    color--hover: white,
+    hover-transition: sweep-to-right
   ),
   link: (
+    button-style-name: link,
     background-color: transparent,
     color: $global-text-link-color,
     background-color--hover: transparent,
-    color--hover: $global-text-link-color
+    color--hover: $global-text-link-color,
+    hover-transition: sweep-to-bottom
   )
 ) !default;
 

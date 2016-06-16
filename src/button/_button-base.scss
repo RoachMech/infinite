@@ -15,6 +15,7 @@
   $hover-transition: false,
   $line-height: $button-line-height,
   $margin: $button-margin,
+  $button-style-name: $button-default-style,
   $padding: $button-padding,
   $text-align: $button-text-align,
   $text-decoration: $button-text-decoration,
@@ -37,7 +38,7 @@
   vertical-align: $vertical-align;
 
   @if $hover-transition {
-    @include button-hover-transition($hover-transition);
+    @include button-hover-transition($hover-transition, get-button-style($button-style-name));
   } @else {
     &:hover {
       background-color: $background-color--hover;
