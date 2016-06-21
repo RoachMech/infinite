@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "A nice frontend framework with endless possibilities",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/test.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/RoachMech/infinite/issues"
   },
-  "homepage": "https://github.com/RoachMech/infinite#readme"
+  "homepage": "https://github.com/RoachMech/infinite#readme",
+  "devDependencies": {
+    "mocha": "^2.5.3",
+    "sass-true": "^2.0.3"
+  }
 }
