@@ -4,6 +4,13 @@
 @import "button-base";
 
 /// Styled button
+/// @parameter {String} $style [$button-default-style] - button style
+/// @parameter {String} $size [$button-default-size]- button size
+///
+/// @example scss - Button mixin
+///   .myButton {
+///     @include button(ghost, small);
+///   }
 @mixin button(
   $style: $button-default-style,
   $size: $button-default-size
