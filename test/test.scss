@@ -1,34 +1,29 @@
 @import "true";
 
-@include test-module('Utilities') {
+$button-styles: (
+  foo: (
+    button-style-name: test
+  )
+);
 
-  // Testing Functions
-  @include test('Map Add [function]') {
-    $base: (one: 1, two: 1, three: 1);
-    $add: (one: 1, two: 2, three: -1);
+@import "../src/button/button-functions";
 
-    $test: map-add($base, $add);
-    $expect: (one: 2, two: 3, three: 0);
+@include test-module('Button functions') {
+
+  @include test('Get button style (Exists) [function]') {
+
+    $test: get-button-style(foo);
+    $expect: (button-style-name: test);
     @include assert-equal($test, $expect,
-            'Returns the sum of two numeric maps');
+            'Returns the given button style');
   }
 
-  // Testing Mixins
-  @include test('Font Size [mixin]') {
-    @include assert('Outputs a font size and line height based on keyword.') {
-      @include input {
-        @include font-size(large);
-      }
+  @include test('Get button style (Does not exist) [function]') {
 
-      @include expect {
-        font-size: 2rem;
-        line-height: 3rem;
-      }
-    }
+    $test: get-button-style(bar);
+    $expect: ();
+    @include assert-equal($test, $expect,
+            'Returns an empty map');
   }
+
 }
-
-// Optionally show summary report in CSS and/or the command line:
-// - If you use Mocha, reporting to the command line is automatic.
-// - if you use true-cli, report(terminal) is required for output.
-@include report;
