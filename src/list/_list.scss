@@ -1,0 +1,30 @@
+@import "list-variables";
+
+@mixin list() {
+  list-style-type: $list-list-style-type;
+  margin: $list-margin;
+  padding: $list-padding;
+}
+
+@mixin list-item() {
+  background-color: violet;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin list-item-visual() {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin list-item-content() {
+  background-color: #0000AA;
+  align-self: center;
+  flex: 1;
+}
+
+@mixin list-item-actions() {
+  display: flex;
+}
