@@ -11,6 +11,7 @@
 
   @include button-optimize-for-transition();
 
+  &:focus,
   &:hover {
     color: map-get($button-style, color--hover);
   }
@@ -46,6 +47,7 @@
     }
   }
 
+  &:focus:before,
   &:hover:before {
 
     @if button-has-vertical-transition($type) {
@@ -67,6 +69,7 @@
   @include button-optimize-for-transition();
   transition: transform .2s;
 
+  &:focus,
   &:hover {
     @if $type == grow {
       transform: scale(1.1);
@@ -90,6 +93,7 @@
 
   @include button-optimize-for-transition();
 
+  &:focus,
   &:hover {
     animation: $animation map-get($button-animations, $animation);
   }

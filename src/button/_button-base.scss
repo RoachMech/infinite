@@ -6,6 +6,7 @@
   $background-color--hover: $button-background-color--hover,
   $border: $button-border-width $button-border-style $button-border-color,
   $border-radius: $button-border-radius,
+  $button-style-name: $button-default-style,
   $box-shadow: $button-box-shadow,
   $color: $button-text-color,
   $color--hover: $button-text-color,
@@ -15,7 +16,7 @@
   $hover-transition: false,
   $line-height: $button-line-height,
   $margin: $button-margin,
-  $button-style-name: $button-default-style,
+  $outline--focus: $button-outline--focus,
   $padding: $button-padding,
   $text-align: $button-text-align,
   $text-decoration: $button-text-decoration,
@@ -44,6 +45,10 @@
       background-color: $background-color--hover;
       color: $color--hover;
     }
+  }
+
+  &:focus {
+    outline: $button-outline--focus;
   }
 
 }

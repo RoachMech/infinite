@@ -1,0 +1,24 @@
+@mixin form-checkbox-replaced {
+  display: none;
+}
+
+@mixin form-checkbox-replaced-label {
+  display: block;
+  line-height: 1;
+  margin: 0 0 1rem;
+
+  &:before {
+    border: 1px solid black;
+    content: '';
+    display: inline-block;
+    height: 1rem;
+    margin: 0 .5rem 0 0;
+    vertical-align: text-top;
+    width: 1rem;
+  }
+
+  input[type='checkbox']:checked + &:before {
+    background-color: black;
+  }
+
+}

@@ -1,13 +1,17 @@
 $form-input-background-color: white !default;
+$form-input-background-color--focus: $form-input-background-color !default;
 $form-input-border: 2px solid black !default;
+$form-input-border--focus: 2px solid blue !default;
 $form-input-border-radius: $global-border-radius !default;
 $form-input-box-shadow: false !default;
+$form-input-box-shadow--focus: false !default;
 $form-input-box-sizing: border-box !default;
 $form-input-color: inherit !default;
 $form-input-display: block !default;
 $form-input-font-family: inherit !default;
 $form-input-font-size: 1rem !default;
 $form-input-margin: 0 0 1em 0 !default;
+$form-input-outline--focus: none !default;
 $form-input-padding: 0.75em 1em !default;
 $form-input-width: 100% !default;
 
