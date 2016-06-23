@@ -11,19 +11,44 @@ $button-styles: (
 @include test-module('Button functions') {
 
   @include test('Get button style (Exists) [function]') {
-
     $test: get-button-style(foo);
     $expect: (button-style-name: test);
     @include assert-equal($test, $expect,
-            'Returns the given button style');
+      'Returns the given button style');
   }
 
   @include test('Get button style (Does not exist) [function]') {
-
     $test: get-button-style(bar);
     $expect: ();
     @include assert-equal($test, $expect,
-            'Returns an empty map');
+      'Returns an empty map');
+  }
+
+  @include test('Add a new button style [function]') {
+    $new: (button-style-name: new);
+    $test: set-button-style(new, $new);
+    $expect: (
+      foo: (
+        button-style-name: test
+      ),
+      new: (
+        button-style-name: new
+      )
+    );
+    @include assert-equal($test, $expect,
+      'Returns the available button styles including the new one');
+  }
+
+  @include test('Overwrite an existing button style [function]') {
+    $overwrite: (button-style-name: overwritten);
+    $test: set-button-style(foo, $overwrite);
+    $expect: (
+      foo: (
+        button-style-name: overwritten
+      )
+    );
+    @include assert-equal($test, $expect,
+      'Returns the available button styles');
   }
 
 }

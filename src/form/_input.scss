@@ -1,0 +1,32 @@
+@import "form-variables";
+
+@mixin form-input-base {
+  background-color: $form-input-background-color;
+  border: $form-input-border;
+  border-radius: $form-input-border-radius;
+  @if $form-input-box-shadow {
+    box-shadow: $form-input-box-shadow;
+  }
+  box-sizing: $form-input-box-sizing;
+  color: $form-input-color;
+  display: $form-input-display;
+  font-family: $form-input-font-family;
+  font-size: $form-input-font-size;
+  margin: $form-input-margin;
+  padding: $form-input-padding;
+  width: $form-input-width;
+
+  @if $form-input-transition {
+    transition: $form-input-transition;
+  }
+
+  /*
+  // Focus state
+  &:focus {
+    border: $form-input-border--focus;
+    background-color: $form-input-background-color--focus;
+    outline: $form-input-outline--focus;
+    box-shadow: $form-input-box-shadow--focus;
+  }
+  */
+}

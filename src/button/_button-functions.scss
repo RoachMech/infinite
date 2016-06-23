@@ -10,11 +10,11 @@
   }
 }
 
-/// Add a button style
+/// Set a button style. Overwrite existing style or add a new one
 ///
 /// @parameter {string} $name - Name of the style
 /// @parameter {map} $style - Map of style parameters
-@function add-button-style($name, $style) {
+@function set-button-style($name, $style) {
   $new-style: (
     $name: $style
   );

@@ -3,7 +3,7 @@ $button-background-color--hover: scale_color($button-background-color, $lightnes
 $button-border-width: 0 !default;
 $button-border-style: solid !default;
 $button-border-color: transparent !default;
-$button-border-radius: $global-radius !default;
+$button-border-radius: $global-border-radius !default;
 $button-box-shadow: none !default;
 $button-cursor: pointer !default;
 $button-display: inline-block !default;
