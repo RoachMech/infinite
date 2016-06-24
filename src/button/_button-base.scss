@@ -20,7 +20,8 @@
   $padding: $button-padding,
   $text-align: $button-text-align,
   $text-decoration: $button-text-decoration,
-  $vertical-align: $button-vertical-align
+  $vertical-align: $button-vertical-align,
+  $white-space: $button-white-space
 ) {
   -webkit-appearance: none;
   background-color: $background-color;
@@ -37,6 +38,7 @@
   text-align: $text-align;
   text-decoration: $text-decoration;
   vertical-align: $vertical-align;
+  white-space: $white-space;
 
   @if $hover-transition {
     @include button-hover-transition($hover-transition, get-button-style($button-style-name));
